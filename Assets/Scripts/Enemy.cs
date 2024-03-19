@@ -24,5 +24,10 @@ public class Enemy : MonoBehaviour
         // 이를 통해 적과 플레이어 간의 거리에 상관없이 항상 일정한 속도로 움직이게 됩니다.(방향성만 구하고 크기는 1로 고정)
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         enemyRb.AddForce(lookDirection * speed);
+
+        if (transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
     }
 }
